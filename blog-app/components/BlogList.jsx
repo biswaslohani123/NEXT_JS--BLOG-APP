@@ -1,20 +1,26 @@
+"use client"
+
 import { blog_data } from '@/assets/assets'
-import React from 'react'
+import React, { useState } from 'react'
 import BlogItem from './BlogItem'
 
 const BlogList = () => {
+
+
+    const [menu, setMenu ] = useState("All");
+
   return (
 
     <div>
       <div className='flex justify-center gap-5 my-18'>
-            <button className='bg-black text-white py-1 px-4 rounded-sm'>All</button>
-            <button >technology</button>
-            <button >Startup</button>
-            <button >Life Style</button>
+            <button onClick={() => setMenu('All')}  className={menu === 'All'?'bg-black text-white py-1 px-4 rounded-sm': ""}>All</button>
+            <button onClick={() => setMenu('Technology')} className={menu === 'Technology'?'bg-black text-white py-1 px-4 rounded-sm': ""} >technology</button>
+            <button onClick={() => setMenu('Startup')} className={menu === 'Startup'?'bg-black text-white py-1 px-4 rounded-sm': ""} >Startup</button>
+            <button onClick={() => setMenu('Life Style')} className={menu === 'Life Style'?'bg-black text-white py-1 px-4 rounded-sm': ""} >Life Style</button>
       </div>
       <div className='flex flex-wrap justify-around gap-1 gap-y-10 mb-16 x:mx-24'>
 
-        {blog_data.map((item , index) => {
+        {blog_data.filter((item) => menu === 'All'? true : item.category === menu ).map((item , index) => {
 
             return <BlogItem key={index} title={item.title} image={item.image} description={item.description} category={item.category}/>
 
