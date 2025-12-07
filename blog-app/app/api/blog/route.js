@@ -1,19 +1,22 @@
+
 import ConnectDB from "@/lib/config/db";
+import blogModel from "@/lib/models/blogModel";
 
 const { NextResponse } = require("next/server");
 import {writeFile} from 'fs/promises'
 
 
-
-const LoadDb = async () => {
-
-    await ConnectDB();
-
+const LoadDB = async () => {
+    await ConnectDB()
 }
 
-LoadDb();
+LoadDB()
+
+
+
 
 export async function GET (request) {
+
 
     console.log('Blog get Hit');
     return NextResponse.json({msg: 'API working GET'})
@@ -22,6 +25,7 @@ export async function GET (request) {
 }
 
 export async function POST(request) {
+
 
     const formData = await request.formData();
     const timestamp = Date.now();
@@ -47,8 +51,12 @@ export async function POST(request) {
         authorImage: `${formData.get('authorImage')}`
 
     }
+
+    await blogModel.create(blogData);
+    console.log("Blog saved");
     
-    return NextResponse.json({imageUrl})
+    
+    return NextResponse.json({success: true, msg: "Blog Added"})
     
 
 }
