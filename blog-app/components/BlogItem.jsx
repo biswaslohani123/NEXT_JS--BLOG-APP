@@ -10,7 +10,7 @@ const BlogItem = ({title, description, category, image, id}) => {
     <div className='max-w-[330px] sm:max-w-[300px bg-white border border-black cursor-pointer  overflow-hidden rounded-2xl '>
 
       <Link href={`/blog/${id}`}>
-      <Image src={image} alt='' width={400} height={400} 
+      <Image src={image } alt='' width={400} height={400} 
     
       className='border-b border-black hover:scale-105 transition-transform duration-300 '/>
        </Link>

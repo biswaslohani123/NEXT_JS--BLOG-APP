@@ -1,6 +1,7 @@
 import { assets } from "@/assets/assets";
 import SideBar from "@/components/AdminComponents/SideBar";
 import Image from "next/image";
+import { ToastContainer } from "react-toastify";
 
 export default function Layout({children}){
 
@@ -8,6 +9,7 @@ export default function Layout({children}){
         <>
 
             <div className="flex">
+            <ToastContainer theme="dark"/>
                 <SideBar/>
 
             <div className="flex flex-col w-full">
@@ -15,7 +17,7 @@ export default function Layout({children}){
                     <h3 className="font-medium">Admin Panel</h3>
                     <Image alt="" src={assets.profile_icon} width={40} />
                 </div>
-                
+
                  {children}
             </div>
 
