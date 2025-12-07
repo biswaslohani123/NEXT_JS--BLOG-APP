@@ -27,7 +27,7 @@ const BlogList = () => {
 
         {blog_data.filter((item) => menu === 'All'? true : item.category === menu ).map((item , index) => {
 
-            return <BlogItem key={index} title={item.title} image={item.image} description={item.description} category={item.category}/>
+            return <BlogItem key={index} id={item.id} title={item.title} image={item.image} description={item.description} category={item.category}/>
 
         })}
 
