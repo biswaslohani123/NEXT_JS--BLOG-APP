@@ -3,6 +3,7 @@
 import { assets, blog_data } from '@/assets/assets';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -34,7 +35,9 @@ const page = () => {
     <div className='sh py-5 px-5 md:px-12 lg:px-28 bg-linear-to-b from-white via-purple-100 to-white  '>
 
         <div className='flex justify-between items-center'>
-                <Image src={assets.logo} width={180} alt='' className='1-[130px] sm:w-auto'/>
+               <Link href='/'>
+               <Image  src={assets.logo} width={180} alt='' className='1-[130px] sm:w-auto'/>
+               </Link> 
                 <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black cursor-pointer rounded-xl bg-black text-white'>Get Started <Image alt='' src={assets.arrow} className='invert'/></button>
     
         </div>
