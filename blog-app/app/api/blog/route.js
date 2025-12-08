@@ -18,18 +18,21 @@ LoadDB()
 export async function GET (request) {
 
 
-    const blogId = request.nextUrl.searchParams.get("id");
-    if (blogId) {
+        const blogId = request.nextUrl.searchParams.get("id");
 
-        const blog = await blogModel.findById(blogId);
-        return NextResponse.json(blog);
-        
-    }else{
+        if (blogId) {
 
-        const blogs = await blogModel.find({});
+            const blog = await blogModel.findById(blogId)
+            return NextResponse.json(blog)
+        }{
+            
+            const blogs = await blogModel.find({});
     
-        return NextResponse.json({blogs})
-    }
+            return NextResponse.json({blogs})
+        }
+
+      
+    
 
     
     
